@@ -1,0 +1,1 @@
+sh install_nova.sh

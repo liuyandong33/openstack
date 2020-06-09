@@ -193,3 +193,5 @@ EOF
 ln -s /usr/share/keystone/wsgi-keystone.conf /etc/httpd/conf.d/
 
 systemctl start httpd.service
+
+openstack project create --domain default --description "Service Project" service

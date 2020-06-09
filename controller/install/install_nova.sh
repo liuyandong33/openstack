@@ -15,7 +15,7 @@ cat /dev/null > /etc/nova/nova.conf
 cat << EOF >> /etc/nova/nova.conf
 [DEFAULT]
 enabled_apis = osapi_compute,metadata
-my_ip = 10.0.0.11
+my_ip = 192.168.1.101
 
 [api]
 auth_strategy = keystone

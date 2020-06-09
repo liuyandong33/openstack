@@ -86,6 +86,16 @@ password = nova
 [mks]
 
 [neutron]
+auth_url = http://controller:5000
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = neutron
+service_metadata_proxy = true
+metadata_proxy_shared_secret = METADATA_SECRET
 
 [notifications]
 

@@ -25,3 +25,5 @@ sh install_keystone.sh
 sh install_glance.sh
 sh install_placement.sh
 sh install_nova.sh
+sh install_neutron.sh
+sh install_dashboard.sh

@@ -1,4 +1,4 @@
-yum install openstack-nova-compute
+yum install -y openstack-nova-compute
 
 cp /etc/nova/nova.conf /etc/nova/nova.conf.bak
 cat /dev/null > /etc/nova/nova.conf

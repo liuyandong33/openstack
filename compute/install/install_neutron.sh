@@ -1,4 +1,4 @@
-yum install openstack-neutron-linuxbridge ebtables ipset
+yum install -y openstack-neutron-linuxbridge ebtables ipset
 
 cp /etc/neutron/neutron.conf /etc/neutron/neutron.conf.bak
 cat /dev/null > /etc/neutron/neutron.conf

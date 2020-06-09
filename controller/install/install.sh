@@ -13,11 +13,11 @@ gpgcheck=0
 EOF
 
 cat << EOF >> /etc/hosts
-127.0.0.1 rabbitmq
-127.0.0.1 memcached
-127.0.0.1 controller
-127.0.0.1 etcd
-127.0.0.1 mysql
+192.168.1.103 rabbitmq
+192.168.1.103 memcached
+192.168.1.101 controller
+192.168.1.103 etcd
+192.168.1.103 mysql
 EOF
 
 systemctl stop firewalld

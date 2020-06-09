@@ -13,6 +13,8 @@ yum install -y openstack-glance
 cp /etc/glance/glance-api.conf /etc/glance/glance-api.conf.bak
 cat /dev/null > /etc/glance/glance-api.conf
 cat << EOF >> /etc/glance/glance-api.conf
+[DEFAULT]
+
 [cors]
 
 [database]
@@ -69,6 +71,8 @@ EOF
 cp /etc/glance/glance-registry.conf /etc/glance/glance-registry.conf.bak
 cat /dev/null > /etc/glance/glance-registry.conf
 cat << EOF >> /etc/glance/glance-registry.conf
+[DEFAULT]
+
 [database]
 connection = mysql+pymysql://glance:glance@mysql/glance
 

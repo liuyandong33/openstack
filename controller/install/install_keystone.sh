@@ -3,6 +3,8 @@ yum install -y openstack-keystone httpd mod_wsgi
 cp /etc/keystone/keystone.conf /etc/keystone/keystone.conf.bak
 cat /dev/null > /etc/keystone/keystone.conf
 cat << EOF >> /etc/keystone/keystone.conf
+[DEFAULT]
+
 [application_credential]
 
 [assignment]

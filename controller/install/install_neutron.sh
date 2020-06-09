@@ -70,6 +70,8 @@ EOF
 cp /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugins/ml2/ml2_conf.ini.bak
 cat /dev/null > /etc/neutron/plugins/ml2/ml2_conf.ini
 cat << EOF >> /etc/neutron/plugins/ml2/ml2_conf.ini
+[DEFAULT]
+
 [ml2]
 type_drivers = flat,vlan
 tenant_network_types =

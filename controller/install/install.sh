@@ -1,7 +1,7 @@
 cat << EOF >> /etc/yum.repos.d/openstack.repo
 [openstack-rocky]
 name=openstack-rocky
-baseurl=https://mirrors.aliyun.com/centos/7/cloud/x86_64/openstack-rocky/
+baseurl=https://mirrors.aliyun.com/centos/7/cloud/x86_64/openstack-train/
 enabled=1
 gpgcheck=0
 

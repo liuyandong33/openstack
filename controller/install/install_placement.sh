@@ -14,6 +14,8 @@ su -s /bin/sh -c "placement-manage db sync" placement
 cp /etc/placement/placement.conf /etc/placement/placement.conf.bak
 cat /dev/null > /etc/placement/placement.conf
 cat << EOF >> /etc/nova/nova.conf
+[DEFAULT]
+
 [api]
 auth_strategy = keystone
 

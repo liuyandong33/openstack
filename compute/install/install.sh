@@ -11,6 +11,13 @@ baseurl= https://mirrors.aliyun.com/centos/7/virt/x86_64/kvm-common/
 enabled=1
 gpgcheck=0
 EOF
+
+cat << EOF >> /etc/hosts
+127.0.0.1 rabbitmq
+127.0.0.1 memcached
+127.0.0.1 controller
+EOF
+
 # 安装 nova 服务
 sh install_nova.sh
 

@@ -12,6 +12,22 @@ enabled=1
 gpgcheck=0
 EOF
 
+cat << EOF >> /etc/hosts
+127.0.0.1 rabbitmq
+127.0.0.1 memcached
+127.0.0.1 controller
+127.0.0.1 etcd
+127.0.0.1 mysql
+EOF
+
+systemctl stop firewalld
+systemctl disable firewalld
+setenforce 0
+
+yum upgrade -y
+
+hostnamectl set-hostname controller
+
 yum install -y python-openstackclient
 
 yum install -y openstack-selinux

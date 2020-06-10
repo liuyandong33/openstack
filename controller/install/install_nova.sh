@@ -15,6 +15,7 @@ cat /dev/null > /etc/nova/nova.conf
 cat << EOF >> /etc/nova/nova.conf
 [DEFAULT]
 enabled_apis = osapi_compute,metadata
+transport_url = rabbit://openstack:openstack@rabbitmq:5672/
 my_ip = 192.168.1.101
 
 [api]
@@ -22,7 +23,6 @@ auth_strategy = keystone
 
 [api_database]
 connection = mysql+pymysql://nova:nova@mysql/nova_api
-transport_url = rabbit://openstack:openstack@rabbitmq:5672/
 
 [barbican]
 

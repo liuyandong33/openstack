@@ -5,7 +5,7 @@ cat /dev/null > /etc/nova/nova.conf
 cat << EOF >> /etc/nova/nova.conf
 [DEFAULT]
 enabled_apis = osapi_compute,metadata
-transport_url = rabbit://openstack:openstack@rabbitmq
+transport_url = rabbit://openstack:openstack@rabbitmq:5672/
 my_ip = MANAGEMENT_INTERFACE_IP_ADDRESS
 
 [api]

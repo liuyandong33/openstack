@@ -4,7 +4,7 @@ cp /etc/neutron/neutron.conf /etc/neutron/neutron.conf.bak
 cat /dev/null > /etc/neutron/neutron.conf
 cat << EOF >> /etc/neutron/neutron.conf
 [DEFAULT]
-transport_url = rabbit://openstack:openstack@rabbitmq
+transport_url = rabbit://openstack:openstack@rabbitmq:5672/
 auth_strategy = keystone
 
 [cors]

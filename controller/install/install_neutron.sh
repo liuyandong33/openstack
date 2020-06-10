@@ -16,7 +16,7 @@ cat << EOF >> /etc/neutron/neutron.conf
 [DEFAULT]
 core_plugin = ml2
 service_plugins =
-transport_url = rabbit://openstack:openstack@rabbitmq
+transport_url = rabbit://openstack:openstack@rabbitmq:5672/
 auth_strategy = keystone
 notify_nova_on_port_status_changes = true
 notify_nova_on_port_data_changes = true

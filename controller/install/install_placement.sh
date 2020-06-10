@@ -41,4 +41,5 @@ connection = mysql+pymysql://placement:placement@mysql/placement
 [profiler]
 EOF
 
+su -s /bin/sh -c "placement-manage db sync" placement
 systemctl restart httpd

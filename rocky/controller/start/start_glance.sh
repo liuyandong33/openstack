@@ -1,0 +1,1 @@
+systemctl start openstack-glance-api.service openstack-glance-registry.service

@@ -1,8 +1,3 @@
-yum install -y openstack-dashboard
-
-cp /etc/openstack-dashboard/local_settings /etc/openstack-dashboard/local_settings.bak
-cat /dev/null > /etc/openstack-dashboard/local_settings
-cat << EOF >> /etc/openstack-dashboard/local_settings
 # -*- coding: utf-8 -*-
 
 # ----------------------------------------------------------------------
@@ -423,30 +418,3 @@ OPENSTACK_API_VERSIONS = {
 }
 OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = "Default"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "user"
-EOF
-
-cp /etc/httpd/conf.d/openstack-dashboard.conf /etc/httpd/conf.d/openstack-dashboard.conf.bak
-cat /dev/null > /etc/httpd/conf.d/openstack-dashboard.conf
-cat << EOF >> /etc/httpd/conf.d/openstack-dashboard.conf
-WSGIDaemonProcess dashboard
-WSGIProcessGroup dashboard
-WSGISocketPrefix run/wsgi
-WSGIApplicationGroup %{GLOBAL}
-
-WSGIScriptAlias /dashboard /usr/share/openstack-dashboard/openstack_dashboard/wsgi/django.wsgi
-Alias /dashboard/static /usr/share/openstack-dashboard/static
-
-<Directory /usr/share/openstack-dashboard/openstack_dashboard/wsgi>
-  Options All
-  AllowOverride All
-  Require all granted
-</Directory>
-
-<Directory /usr/share/openstack-dashboard/static>
-  Options All
-  AllowOverride All
-  Require all granted
-</Directory>
-EOF
-
-systemctl restart httpd.service

@@ -13,11 +13,11 @@ gpgcheck=0
 EOF
 
 cat << EOF >> /etc/hosts
-192.168.1.103 rabbitmq
-192.168.1.103 memcached
-192.168.1.101 controller
-192.168.1.103 etcd
-192.168.1.103 mysql
+172.16.102.73 rabbitmq
+172.16.102.73 memcached
+172.16.102.74 controller
+172.16.102.73 etcd
+172.16.102.73 mysql
 EOF
 
 systemctl stop firewalld
@@ -32,7 +32,7 @@ yum install -y python-openstackclient
 
 yum install -y openstack-selinux
 
-source ../admin-openrc.sh
+source ../../admin-openrc
 
 sh install_keystone.sh
 sh install_glance.sh

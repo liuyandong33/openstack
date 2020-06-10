@@ -47,7 +47,7 @@ cp /etc/neutron/plugins/ml2/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linux
 cat /dev/null > /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 cat << EOF >> /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 [linux_bridge]
-physical_interface_mappings = provider:eth1
+physical_interface_mappings = provider:eth0
 
 [vxlan]
 enable_vxlan = false

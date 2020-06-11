@@ -32,3 +32,24 @@ su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --co
 systemctl restart openstack-nova-api.service
 
 systemctl start neutron-server.service neutron-linuxbridge-agent.service neutron-dhcp-agent.service neutron-metadata-agent.service
+
+OPENSTACK_NEUTRON_NETWORK = {
+    'enable_auto_allocated_network': False,
+    'enable_distributed_router': False,
+    'enable_fip_topology_check': False,
+    'enable_ha_router': False,
+    'enable_ipv6': True,
+    'enable_quotas': False,
+    'enable_rbac_policy': True,
+    'enable_router': False,
+    'enable_lb': False,
+    'enable_firewall': False,
+    'enable_vpn': False,
+
+    'default_dns_nameservers': [],
+    'supported_provider_types': ['*'],
+    'segmentation_id_range': {},
+    'extra_provider_types': {},
+    'supported_vnic_types': ['*'],
+    'physical_networks': [],
+}

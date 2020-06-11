@@ -10,11 +10,46 @@ openstack endpoint create --region RegionOne image admin http://controller:9292
 
 yum install -y openstack-glance
 
-mv /etc/glance/glance-api.conf /etc/glance/glance-api.conf.bak
-cp ../config/glance-api.conf /etc/glance/glance-api.conf
+/etc/glance/glance-api.conf
+[database]
+connection = mysql+pymysql://glance:glance@mysql/glance
 
-mv /etc/glance/glance-registry.conf /etc/glance/glance-registry.conf.bak
-cp ../config/glance-registry.conf /etc/glance/glance-registry.conf
+[keystone_authtoken]
+www_authenticate_uri  = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = memcached:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = glance
+password = glance
+
+[paste_deploy]
+flavor = keystone
+
+[glance_store]
+stores = file,http
+default_store = file
+filesystem_store_datadir = /var/lib/glance/images/
+
+/etc/glance/glance-registry.conf
+[database]
+connection = mysql+pymysql://glance:glance@mysql/glance
+
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = memcached:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = glance
+password = glance
+
+[paste_deploy]
+flavor = keystone
 
 su -s /bin/sh -c "glance-manage db_sync" glance
 

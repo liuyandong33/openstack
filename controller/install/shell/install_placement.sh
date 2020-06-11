@@ -9,7 +9,6 @@ openstack endpoint create --region RegionOne placement internal http://controlle
 openstack endpoint create --region RegionOne placement admin http://controller:8778
 
 yum install -y openstack-placement-api
-su -s /bin/sh -c "placement-manage db sync" placement
 
 mv /etc/placement/placement.conf /etc/placement/placement.conf.bak
 cp ../config/placement.conf /etc/placement/placement.conf

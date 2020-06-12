@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Application {
     public static void main(String[] args) throws IOException {
-        FileInputStream fileInputStream = new FileInputStream("E:\\workspace\\openstack\\rocky\\controller\\install\\config\\metadata_agent.ini");
+        FileInputStream fileInputStream = new FileInputStream("E:\\workspace\\openstack\\rocky\\compute\\config\\linuxbridge_agent.ini");
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 

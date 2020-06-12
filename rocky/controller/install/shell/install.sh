@@ -15,7 +15,7 @@ EOF
 cat << EOF >> /etc/hosts
 172.16.102.75 rabbitmq
 172.16.102.75 memcached
-172.16.102.76 controller
+172.16.102.78 controller
 172.16.102.75 etcd
 172.16.102.75 mysql
 EOF
@@ -32,11 +32,8 @@ yum install -y python-openstackclient
 
 yum install -y openstack-selinux
 
-source ../../admin-openrc
-
 sh install_keystone.sh
 sh install_glance.sh
-sh install_placement.sh
 sh install_nova.sh
 sh install_neutron.sh
 sh install_dashboard.sh

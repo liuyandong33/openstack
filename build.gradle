@@ -1,0 +1,12 @@
+group "build.dream"
+version "0.1.0"
+
+buildscript {
+}
+
+apply plugin: "java"
+apply plugin: "idea"
+
+
+dependencies {
+}

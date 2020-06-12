@@ -1,8 +1,9 @@
 yum install -y openstack-dashboard
 
-/etc/openstack-dashboard/local_settings
+mv /etc/openstack-dashboard/local_settings /etc/openstack-dashboard/local_settings.bak
+cp ../config/local_settings /etc/openstack-dashboard/local_settings
 
-/etc/httpd/conf.d/openstack-dashboard.conf
-WSGIApplicationGroup %{GLOBAL}
+mv /etc/httpd/conf.d/openstack-dashboard.conf /etc/httpd/conf.d/openstack-dashboard.conf.bak
+cp ../config/openstack-dashboard.conf /etc/httpd/conf.d/openstack-dashboard.conf
 
 systemctl restart httpd.service

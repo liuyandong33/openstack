@@ -35,3 +35,6 @@ FLUSH PRIVILEGES;
 EOF
 
 rm -rf /mysql
+
+systemctl stop firewalld
+systemctl disable firewalld

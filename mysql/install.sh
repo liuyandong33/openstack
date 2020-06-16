@@ -38,3 +38,9 @@ rm -rf /mysql
 
 systemctl stop firewalld
 systemctl disable firewalld
+
+172.0.0.2 squid
+172.0.0.3 rabbitmq
+172.0.0.4 memcached
+172.0.0.5 etcd
+172.0.0.6 mysql

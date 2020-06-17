@@ -27,13 +27,17 @@ http://controller:8778
 http://controller:9696
 http://controller:8778
 http://controller:9292
-http://controller:9696      |
-http://controller:9696      |
-http://controller:5000/v3/  |
-http://controller:5000/v3/  |
-http://controller:8778      |
-http://controller:8774/v2.1 |
-http://controller:5000/v3/  |
-http://controller:8774/v2.1 |
-http://controller:9292      |
+http://controller:9696
+http://controller:9696
+http://controller:5000/v3/
+http://controller:5000/v3/
+http://controller:8778
+http://controller:8774/v2.1
+http://controller:5000/v3/
+http://controller:8774/v2.1
 http://controller:9292
+http://controller:9292
+
+
+192.168.1.31 jenkins.groovy.top
+192.168.1.31 nexus.groovy.top

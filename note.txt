@@ -41,3 +41,76 @@ http://controller:9292
 
 192.168.1.31 jenkins.groovy.top
 192.168.1.31 nexus.groovy.top
+192.168.1.31 yapi.groovy.top
+
+
+COSMOPlat PaaS平台(青岛)
+cosmoplat-jyzx-test
+
+
+deepexi-domain-permission-dubbo-1.0.0-hr-SNAPSHOT.jar
+deepexi-domain-permission-permission-dubbo-provider-1.0.0-hr-SNAPSHOT.jar
+
+
+
+deepexi-domain-permission
+deepexi-domain-depot
+deepexi-domain-commodity
+deepexi-domain-schedule
+deepexi-domain-trade
+deepexi-domain-auth
+
+FROM openjdk:8-jdk-alpine
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+RUN echo 'Asia/Shanghai' >/etc/timezone
+
+ADD ./deepexi-domain-auth-dubbo/deepexi-domain-auth-dubbo-provider/target/deepexi-domain-auth-dubbo-provider-1.0.0-hr-SNAPSHOT.jar deepexi-domain-auth.jar
+
+ENTRYPOINT ["java", "-jar", "deepexi-domain-auth.jar"]
+EXPOSE 8080
+
+<repository>
+                                  <id>deepexi-central</id>
+                                  <name>public Repository</name>
+                                  <url>http://nexus.deepexi.top/repository/maven-public/</url>
+                                  <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
+                                  <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+                          </repository>
+
+registry1.cosmoplat.com/cosmoplat-jyzx-test/deepexi-domain-trade:test_20200624_1055
+
+FROM openjdk:8-jdk-alpine
+RUN echo 'Asia/Shanghai' >/etc/timezone
+
+ADD ./deepexi-middle-stock-dubbo/deepexi-middle-stock-dubbo-provider/target/deepexi-middle-stock-dubbo-provider-1.0.0-hr-SNAPSHOT.jar deepexi-middle-stock.jar
+
+ENTRYPOINT ["java", "-jar", "deepexi-middle-stock.jar"]
+EXPOSE 8080
+
+FROM openjdk:8-jdk-alpine
+RUN echo 'Asia/Shanghai' >/etc/timezone
+ADD ./deepexi-middle-search-dubbo/deepexi-middle-search-dubbo-provider/target/deepexi-middle-search-dubbo-provider-1.0.0-hr-SNAPSHOT.jar deepexi-middle-search.jar
+
+ENTRYPOINT ["java", "-jar", "deepexi-middle-search.jar"]
+EXPOSE 8080
+
+FROM openjdk:8-jdk-alpine
+RUN echo 'Asia/Shanghai' >/etc/timezone
+ADD deepexi-middle-depot-dubbo/deepexi-middle-depot-dubbo-provider/target/deepexi-middle-depot-dubbo-provider-1.0.0-hr-SNAPSHOT.jar deepexi-middle-depot.jar
+ENTRYPOINT ["java", "-jar", "deepexi-middle-depot.jar"]
+EXPOSE 8080
+
+FROM openjdk:8-jdk-alpine
+RUN echo 'Asia/Shanghai' >/etc/timezone
+ADD ./deepexi-middle-cart-dubbo/deepexi-middle-cart-dubbo-provider/target/
+deepexi-middle-cart-shopping-dubbo-1.0.0-hr-SNAPSHOT.jar deepexi-middle-cart.jar
+deepexi-middle-cart-dubbo-provider-1.0.0-hr-SNAPSHOT.jar
+ENTRYPOINT ["java", "-jar", "deepexi-middle-cart.jar"]
+EXPOSE 8080
+
+FROM openjdk:8-jdk-alpine
+RUN echo 'Asia/Shanghai' >/etc/timezone
+ADD deepexi-middle-account-dubbo/deepexi-middle-account-dubbo-provider/target/deepexi-middle-account-dubbo-provider-1.0.1-hr-SNAPSHOT.jar deepexi-middle-account.jar
+ENTRYPOINT ["java", "-jar", "deepexi-middle-account.jar"]
+EXPOSE 8080

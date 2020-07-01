@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS nacos;
 CREATE DATABASE nacos;
 GRANT ALL PRIVILEGES ON nacos.* TO 'nacos'@'localhost' IDENTIFIED BY 'nacos';
 GRANT ALL PRIVILEGES ON nacos.* TO 'nacos'@'%' IDENTIFIED BY 'nacos';
+
+USE nacos;
 /******************************************/
 /*   数据库全名 = nacos_config   */
 /*   表名称 = config_info   */
